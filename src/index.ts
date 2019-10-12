@@ -1,9 +1,20 @@
-const app = document.getElementById("App");
+import {TimelineMax} from "gsap";
 
-const greeting = (name: string): string => {
-    return `Hello ${name}`;
-};
+import "normalize.css";
+import "bootstrap/dist/css/bootstrap-grid.min.css";
+import "@/styles/app.scss";
+import "devicon/devicon.min.css";
+import "ionicons/dist/css/ionicons.min.css";
 
-if (app) {
-    app.textContent = greeting("Maciej");
-}
+import {finishAnim} from "@/animations/finishAnim";
+import {pageLoadAnim} from "@/animations/pageLoadAnim";
+
+document.addEventListener("DOMContentLoaded", () => {
+  const pageLoadAnimContext = {
+    tl: new TimelineMax(),
+  };
+
+  pageLoadAnim(pageLoadAnimContext.tl);
+
+  document.addEventListener("keyup", finishAnim.bind(pageLoadAnimContext));
+});

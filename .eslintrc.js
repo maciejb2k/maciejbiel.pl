@@ -16,7 +16,7 @@ module.exports = {
     "rules": {
         "max-len": ["error", {"code": 300, "ignoreComments": true, "ignoreTemplateLiterals": true, "ignoreStrings": true}],
         "quotes": ["error", "double"],
-        "indent": ["error", 4],
+        "indent": ["error", 2],
         "brace-style": ["error", "stroustrup"],
         "linebreak-style": 0,
         "no-tabs": 0,
