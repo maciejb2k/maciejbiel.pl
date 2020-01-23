@@ -103,8 +103,8 @@ body {
             width: 100vw;
             height: 100vh;
             opacity: 0;
-            background-image: url("../images/myself.jpg");
-            background-position: center left;
+            background-image: url("../images/clouds.jpg");
+            background-position: center center;
             background-color: #000000;
             background-repeat: no-repeat;
             background-size: cover;
@@ -114,7 +114,7 @@ body {
                 display: block;
                 width: 100vw;
                 height: 100vh;
-                background-color: rgba(0, 0, 0, 0.65);
+                background-color: rgba(0, 0, 0, 0.25);
             }
         }
 
