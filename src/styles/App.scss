@@ -27,6 +27,7 @@ html {
 body {
     font-family: "Montserrat", sans-serif;
     font-size: 1.6rem;
+    background: #000000;
 }
 
 .SiteWrapper {
@@ -40,20 +41,13 @@ body {
         position: absolute;
 
         .Border {
-            width: 250px;
-            height: 250px;
+            width: calc(100vw - 70px);
+            height: calc(100vh - 70px);
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            z-index: 10;
-
-            .Border-photo {
-                width: 80px;
-                height: 80px;
-                display: block;
-                opacity: 0;
-            }
+            z-index: 20;
 
             .Border-line {
                 position: absolute;
@@ -64,7 +58,7 @@ body {
             .Border-line--top {
                 top: 0;
                 left: 0;
-                width: 0%;
+                width: 100%;
                 height: $borderLine-width;
             }
 
@@ -72,13 +66,13 @@ body {
                 right: 0;
                 top: 0;
                 width: $borderLine-width;
-                height: 0%;
+                height: 100%;
             }
 
             .Border-line--bottom {
                 bottom: 0;
                 right: 0;
-                width: 0%;
+                width: 100%;
                 height: $borderLine-width;
             }
 
@@ -86,35 +80,43 @@ body {
                 left: 0;
                 bottom: 0;
                 width: $borderLine-width;
-                height: 0%;
+                height: 100%;
             }
         }
     }
 
     .PageMain {
-        height: 0;
+        height: 100vh;
         width: 100vw;
-        background-color: #000000;
         position: relative;
         color: #ffffff;
+        background-image: url("../images/background.jpg");
+        background-position: center center;
+        background-color: #000000;
+        background-repeat: no-repeat;
+        background-size: cover;
+        opacity: 0;
 
         .PageMain-bg {
-            z-index: -1;
+            z-index: 10;
             width: 100vw;
             height: 100vh;
             opacity: 0;
-            background-image: url("../images/clouds.jpg");
-            background-position: center center;
-            background-color: #000000;
-            background-repeat: no-repeat;
-            background-size: cover;
+            background: linear-gradient(-45deg, #2266be, #22bfe6, #00c0aa, #96c93d);
+            background-size: 400% 400%;
+            animation: gradient 10s ease infinite;
+            position: absolute;
 
-            &:after {
-                content: "";
-                display: block;
-                width: 100vw;
-                height: 100vh;
-                background-color: rgba(0, 0, 0, 0.25);
+            @keyframes gradient {
+                0% {
+                    background-position: 0% 50%;
+                }
+                50% {
+                    background-position: 100% 50%;
+                }
+                100% {
+                    background-position: 0% 50%;
+                }
             }
         }
 
@@ -122,7 +124,7 @@ body {
             position: absolute;
             height: 100vh;
             width: 100vw;
-            z-index: 20;
+            z-index: 30;
             padding: 78px;
             display: flex;
             flex-direction: column;
@@ -137,6 +139,7 @@ body {
                     font-size: 2rem;
                     letter-spacing: 2px;
                     opacity: 0;
+                    color: #ffffff;
 
                     @media screen and (max-width: 700px) {
                         padding-bottom: 20px;
@@ -146,12 +149,14 @@ body {
                 .ExternalLinks {
                     display: flex;
                     align-items: center;
+                    justify-content: center;
                     flex-wrap: wrap;
 
                     .ExternalLinks-title {
                         font-weight: 300;
                         margin-right: 10px;
                         opacity: 0;
+                        color: #ffffff;
 
                         @media screen and (max-width: 700px) {
                             display: none;
@@ -205,6 +210,7 @@ body {
                 .PageFooter-iconsDesc {
                     font-weight: 300;
                     opacity: 0;
+                    color: #ffffff;
 
                     @media screen and (max-width: 700px) {
                         padding-bottom: 20px;

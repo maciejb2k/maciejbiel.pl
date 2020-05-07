@@ -6,7 +6,6 @@ import "@/styles/app.scss";
 import "devicon/devicon.min.css";
 import "ionicons/dist/css/ionicons.min.css";
 
-import {finishAnim} from "@/animations/finishAnim";
 import {pageLoadAnim} from "@/animations/pageLoadAnim";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -15,6 +14,4 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   pageLoadAnim(pageLoadAnimContext.tl);
-
-  document.addEventListener("keyup", finishAnim.bind(pageLoadAnimContext));
 });
