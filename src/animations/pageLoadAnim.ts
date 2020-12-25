@@ -1,4 +1,4 @@
-import {Power1, Power4, TimelineMax} from "gsap";
+import { Power1, Power4, TimelineMax } from "gsap";
 
 export const pageLoadAnim = (tl: TimelineMax): void => {
   const pageMain = document.querySelector(".PageMain");
@@ -18,39 +18,41 @@ export const pageLoadAnim = (tl: TimelineMax): void => {
     links &&
     iconsDesc &&
     linksTitle &&
-    pageTitle) {
-    tl
-      .to(pageMain, 1, {
-        opacity: 1,
-        ease: Power4.easeInOut,
-      })
-      .to(backgroundPhoto, .5, {
+    pageTitle
+  ) {
+    tl.to(pageMain, 1, {
+      opacity: 1,
+      ease: Power4.easeInOut,
+    })
+      .to(backgroundPhoto, 0.5, {
         opacity: 0.5,
         ease: Power4.easeInOut,
       })
-      .to(pageLogo, .5, {
+      .to(pageLogo, 0.5, {
         opacity: 1,
         ease: Power1.easeInOut,
       })
-      .to(pageTitle, .3, {
+      .to(pageTitle, 0.3, {
         opacity: 1,
         ease: Power1.easeInOut,
       })
-      .to(iconsDesc, .3, {
+      .to(iconsDesc, 0.3, {
         opacity: 1,
         ease: Power1.easeInOut,
       })
-      .to(linksTitle, .3, {
+      .to(linksTitle, 0.3, {
         opacity: 1,
         ease: Power1.easeInOut,
       });
 
     Array.from(links).forEach((el) => {
-      tl.to(el, .09, {opacity: 1});
+      tl.to(el, 0.09, { opacity: 1 });
     });
 
-    Array.from(devIcons).reverse().forEach((el) => {
-      tl.to(el, .09, {opacity: 1});
-    });
+    Array.from(devIcons)
+      .reverse()
+      .forEach((el) => {
+        tl.to(el, 0.09, { opacity: 1 });
+      });
   }
 };

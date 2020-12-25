@@ -8,246 +8,257 @@ h4,
 h5,
 h6,
 p {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html,
 body {
-    width: 100%;
-    height: 100%;
-    color: #ffffff;
+  width: 100%;
+  height: 100%;
+  color: #ffffff;
 }
 
 html {
-    font-size: 62.5%;
+  font-size: 62.5%;
 }
 
 body {
-    font-family: "Montserrat", sans-serif;
-    font-size: 1.6rem;
-    background: #000000;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.6rem;
+  background: #000000;
 }
 
 .SiteWrapper {
-    .BorderWrapper {
-        width: 100vw;
-        height: 100vh;
+  .BorderWrapper {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: 0;
+    position: absolute;
+
+    .Border {
+      width: calc(100vw - 70px);
+      height: calc(100vh - 70px);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 20;
+
+      .Border-line {
+        position: absolute;
+        background-color: $borderLine-color;
+        transition: background-color 0.3s;
+      }
+
+      .Border-line--top {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: $borderLine-width;
+      }
+
+      .Border-line--right {
+        right: 0;
+        top: 0;
+        width: $borderLine-width;
+        height: 100%;
+      }
+
+      .Border-line--bottom {
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: $borderLine-width;
+      }
+
+      .Border-line--left {
+        left: 0;
+        bottom: 0;
+        width: $borderLine-width;
+        height: 100%;
+      }
+    }
+  }
+
+  .PageMain {
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    color: #ffffff;
+    background-image: url("../images/background.jpg");
+    background-position: center center;
+    background-color: #000000;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0;
+
+    .PageMain-bg {
+      z-index: 10;
+      width: 100vw;
+      height: 100vh;
+      opacity: 0;
+      background: linear-gradient(
+        -45deg,
+        rgb(13, 196, 68) 20%,
+        rgb(83, 231, 77) 30%,
+        rgba(63, 218, 216, 1) 40%,
+        rgba(47, 201, 226, 1) 50%,
+        rgba(28, 127, 238, 1) 60%,
+        rgba(95, 21, 242, 1) 70%,
+        rgba(186, 12, 248, 1) 80%,
+        rgba(251, 7, 217, 1) 90%,
+        rgba(255, 0, 0, 1) 100%
+      );
+      background-size: 400% 400%;
+      animation: gradient 10s ease infinite;
+      position: absolute;
+
+      @keyframes gradient {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+    }
+
+    .PageContent {
+      position: absolute;
+      height: 100vh;
+      width: 100vw;
+      z-index: 30;
+      padding: 78px;
+      display: flex;
+      flex-direction: column;
+
+      .PageHeader {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .PageHeader-title {
+          font-weight: 300;
+          font-size: 2rem;
+          letter-spacing: 2px;
+          opacity: 0;
+          color: #ffffff;
+
+          @media screen and (max-width: 700px) {
+            padding-bottom: 20px;
+          }
+        }
+
+        .ExternalLinks {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-wrap: wrap;
+
+          .ExternalLinks-title {
+            font-weight: 300;
+            margin-right: 10px;
+            opacity: 0;
+            color: #ffffff;
+
+            @media screen and (max-width: 700px) {
+              display: none;
+              margin-right: 0;
+            }
+          }
+
+          .ExternalLinks-link {
+            color: white;
+            text-decoration: none;
+            font-size: 3rem;
+            margin: 10px;
+            opacity: 0;
+
+            &:first-child {
+              margin-left: 0;
+            }
+
+            &:first-child {
+              margin-right: 0;
+            }
+          }
+        }
+
+        @media screen and (max-width: 700px) {
+          flex-direction: column;
+          justify-content: center;
+        }
+      }
+
+      .PageSection {
         display: flex;
         align-items: center;
         justify-content: center;
-        background: 0;
-        position: absolute;
+        flex: 1;
 
-        .Border {
-            width: calc(100vw - 70px);
-            height: calc(100vh - 70px);
-            position: relative;
-            display: flex;
+        .PageLogo {
+          fill: #ffffff;
+          width: 600px;
+          height: 300px;
+          display: block;
+          opacity: 0;
+        }
+      }
+
+      .PageFooter {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .PageFooter-iconsDesc {
+          font-weight: 300;
+          opacity: 0;
+          color: #ffffff;
+
+          @media screen and (max-width: 700px) {
+            padding-bottom: 20px;
+            text-align: center;
+          }
+        }
+
+        .DevIcons {
+          display: flex;
+          list-style-type: none;
+          flex-wrap: wrap;
+
+          .Icon {
+            margin: 10px;
+            font-size: 2.5rem;
+            opacity: 0;
+
+            &:first-child {
+              margin-left: 0px;
+            }
+
+            &:last-child {
+              margin-right: 0px;
+            }
+          }
+
+          @media screen and (max-width: 700px) {
             align-items: center;
             justify-content: center;
-            z-index: 20;
-
-            .Border-line {
-                position: absolute;
-                background-color: $borderLine-color;
-                transition: background-color 0.3s;
-            }
-
-            .Border-line--top {
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: $borderLine-width;
-            }
-
-            .Border-line--right {
-                right: 0;
-                top: 0;
-                width: $borderLine-width;
-                height: 100%;
-            }
-
-            .Border-line--bottom {
-                bottom: 0;
-                right: 0;
-                width: 100%;
-                height: $borderLine-width;
-            }
-
-            .Border-line--left {
-                left: 0;
-                bottom: 0;
-                width: $borderLine-width;
-                height: 100%;
-            }
+          }
         }
+
+        @media screen and (max-width: 700px) {
+          flex-direction: column;
+          justify-content: center;
+        }
+      }
     }
-
-    .PageMain {
-        height: 100vh;
-        width: 100vw;
-        position: relative;
-        color: #ffffff;
-        background-image: url("../images/background.jpg");
-        background-position: center center;
-        background-color: #000000;
-        background-repeat: no-repeat;
-        background-size: cover;
-        opacity: 0;
-
-        .PageMain-bg {
-            z-index: 10;
-            width: 100vw;
-            height: 100vh;
-            opacity: 0;
-            background: linear-gradient(-45deg, #2266be, #22bfe6, #00c0aa, #96c93d);
-            background-size: 400% 400%;
-            animation: gradient 10s ease infinite;
-            position: absolute;
-
-            @keyframes gradient {
-                0% {
-                    background-position: 0% 50%;
-                }
-                50% {
-                    background-position: 100% 50%;
-                }
-                100% {
-                    background-position: 0% 50%;
-                }
-            }
-        }
-
-        .PageContent {
-            position: absolute;
-            height: 100vh;
-            width: 100vw;
-            z-index: 30;
-            padding: 78px;
-            display: flex;
-            flex-direction: column;
-
-            .PageHeader {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-
-                .PageHeader-title {
-                    font-weight: 300;
-                    font-size: 2rem;
-                    letter-spacing: 2px;
-                    opacity: 0;
-                    color: #ffffff;
-
-                    @media screen and (max-width: 700px) {
-                        padding-bottom: 20px;
-                    }
-                }
-
-                .ExternalLinks {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    flex-wrap: wrap;
-
-                    .ExternalLinks-title {
-                        font-weight: 300;
-                        margin-right: 10px;
-                        opacity: 0;
-                        color: #ffffff;
-
-                        @media screen and (max-width: 700px) {
-                            display: none;
-                            margin-right: 0;
-                        }
-                    }
-
-                    .ExternalLinks-link {
-                        color: white;
-                        text-decoration: none;
-                        font-size: 3rem;
-                        margin: 10px;
-                        opacity: 0;
-
-                        &:first-child {
-                            margin-left: 0;
-                        }
-
-                        &:first-child {
-                            margin-right: 0;
-                        }
-                    }
-                }
-
-                @media screen and (max-width: 700px) {
-                    flex-direction: column;
-                    justify-content: center;
-                }
-            }
-
-            .PageSection {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                flex: 1;
-
-                .PageLogo {
-                    fill: #ffffff;
-                    width: 600px;
-                    height: 300px;
-                    display: block;
-                    opacity: 0;
-                }
-            }
-
-            .PageFooter {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-
-                .PageFooter-iconsDesc {
-                    font-weight: 300;
-                    opacity: 0;
-                    color: #ffffff;
-
-                    @media screen and (max-width: 700px) {
-                        padding-bottom: 20px;
-                        text-align: center;
-                    }
-                }
-
-                .DevIcons {
-                    display: flex;
-                    list-style-type: none;
-                    flex-wrap: wrap;
-
-                    .Icon {
-                        margin: 10px;
-                        font-size: 2.5rem;
-                        opacity: 0;
-
-                        &:first-child {
-                            margin-left: 0px;
-                        }
-
-                        &:last-child {
-                            margin-right: 0px;
-                        }
-                    }
-
-                    @media screen and (max-width: 700px) {
-                        align-items: center;
-                        justify-content: center;
-                    }
-                }
-
-                @media screen and (max-width: 700px) {
-                    flex-direction: column;
-                    justify-content: center;
-                }
-            }
-        }
-    }
+  }
 }
